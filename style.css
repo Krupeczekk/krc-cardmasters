@@ -1,0 +1,549 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: min(.83333333vw, 1.8009478673vh);
+    font-family: sans-serif;
+    transition: font-size .15s linear;
+}
+
+html,
+body,
+.app {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: #292929;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.game-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.hud-container {
+    width: 100%;
+    background: #0303038e;
+    border-bottom: .2rem solid #c2c2c246;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 4.5rem;
+    padding-inline: 1rem;
+    z-index: 999;
+}
+
+.hud-container .cash {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #12e48c;
+}
+
+.hud-container .gem {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #d212e4;
+}
+
+.players {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    width: 100%;
+    height: 100%;
+    max-height: calc(100% - 5rem);
+    gap: 1rem;
+    overflow-y: auto;
+    align-content: flex-start;
+    padding: 1rem;
+}
+
+.players::-webkit-scrollbar {
+    display: none;
+}
+
+.player {
+    position: relative;
+    flex: 1;
+    height: 10rem;
+    background: #333;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    border: .2rem solid #fff;
+}
+
+.player .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #a7a7a7b2;
+    z-index: 0;
+    transition: height linear;
+}
+
+.player .player-level {
+    font-size: 1.5rem;
+    color: #030303;
+    font-weight: 600;
+    z-index: 3;
+}
+
+.player .player-upgrade-cost {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #1d1d1d;
+    z-index: 3;
+}
+
+.new-player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .75rem 1rem;
+    background: #179deb;
+    color: #fff;
+    border-radius: .35rem;
+    margin-left: auto;
+    border: .1rem solid transparent;
+}
+
+.new-player:hover {
+    cursor: pointer;
+    border-color: #fff;
+}
+
+.remove-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .75rem 1rem;
+    background: #eb1717;
+    color: #fff;
+    border-radius: .35rem;
+    margin-left: auto;
+    border: .1rem solid transparent;
+}
+
+.remove-success:hover {
+    cursor: pointer;
+    border-color: #fff;
+}
+
+.upgrades-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .75rem 1rem;
+    background: #10b956;
+    color: #fff;
+    border-radius: .35rem;
+    margin-left: auto;
+    border: .1rem solid transparent;
+}
+
+.upgrades-btn:hover {
+    cursor: pointer;
+    border-color: #fff;
+}
+
+.upgrades-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.upgrades-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 30rem;
+    height: 40rem;
+    border-radius: .5rem;
+    background: #333435;
+    padding: 1rem;
+}
+
+.upgrades-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.upgrades-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.upgrades-nav i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: #631313;
+    color: #f09494;
+    border-radius: .35rem;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background: #ffffff2f;
+    flex-shrink: 0;
+}
+
+.upgrades-list {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+    max-height: fit-content;
+    overflow: hidden;
+    overflow-y: auto;
+    padding-right: .5rem;
+}
+
+.upgrades-list::-webkit-scrollbar {
+    width: .7rem;
+}
+
+.upgrades-list::-webkit-scrollbar-track {
+    background: #ffffff15;
+    border-radius: .75rem;
+}
+
+.upgrades-list::-webkit-scrollbar-thumb {
+    background: #2398e6;
+    border-radius: .75rem;
+}
+
+.upgrade-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    background: #96969654;
+    padding-inline: .75rem;
+    border-radius: .3rem;
+    flex-shrink: 0;
+}
+
+.upgrade-name {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.upgrade-price-wrapper {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .3rem;
+    background: #dadada48;
+    border-radius: .3rem;
+    margin-left: auto;
+}
+
+.upgrade-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: .3rem;
+    font-size: 1rem;
+    margin-left: auto;
+    border-radius: .2rem;
+}
+
+.upgrade-price.cash {
+    background: #0a8f41;
+    color: #95e2b5;
+}
+
+.upgrade-price.gems {
+    background: #840a8f;
+    color: #dc95e2;
+}
+
+.players-count {
+    font-size: 1.2rem;
+    color: #ffffffb2;
+}
+
+.income {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .65rem;
+    background: #755808;
+    color: #d4b459;
+    border-radius: .3rem;
+}
+
+.hud-buttons {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hud-commponents {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.confirmmenu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    background: #353535;
+    padding: 1rem;
+    border-radius: .3rem;
+    border: .1rem solid #6c6c6c;
+}
+
+.confirm-title {
+    font-size: 1.3rem;
+    color: #c0c0c0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.confirm-btns {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.confirm-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    height: 3rem;
+    font-size: 1rem;
+    border-radius: .2rem;
+    border: .1rem solid #ffffff00;
+}
+
+.confirm-btn:hover {
+    border-color: #fff;
+    cursor: pointer;
+}
+
+.confirm-btn.confirm {
+    background: #115e3d;
+    color: #9ff2ce;
+}
+
+.confirm-btn.cancel {
+    background: #5e1123;
+    color: #f29fad;
+}
+
+@media screen and (max-width: 600px) {
+    .hud-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: start;
+        height: 18rem;
+        padding: 2rem;
+    }
+
+    .hud-commponents {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    .hud-container .cash {
+        font-size: 5rem;
+    }
+
+    .hud-container .gem {
+        font-size: 5rem;
+    }
+
+    .players-count {
+        font-size: 4rem;
+    }
+
+    .hud-buttons {
+        margin-left: 0;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .upgrades-btn {
+        height: 5rem;
+        font-size: 3rem;
+        padding: 2rem;
+        box-sizing: border-box;
+    }
+
+    .new-player {
+        height: 5rem;
+        font-size: 3rem;
+        padding: 2rem;
+        box-sizing: border-box;
+    }
+
+    .remove-success {
+        height: 5rem;
+        font-size: 3rem;
+        padding: 2rem;
+        box-sizing: border-box;
+    }
+
+    .players {
+        padding: 2rem;
+        grid-template-columns: repeat(5, 1fr);
+        margin-top: 3rem;
+    }
+
+    .player {
+        height: 30rem;
+        border: .5rem solid #fff;
+        width: 100%;
+    }
+
+    .player .player-level {
+        font-size: 8rem;
+        font-weight: 500;
+    }
+
+    .player .player-upgrade-cost {
+        font-size: 4rem;
+    }
+
+    .income {
+        padding: 1rem;
+        font-size: 3rem;
+        border-radius: .5rem;
+    }
+
+    .upgrades-main {
+        width: 80%;
+        height: 80%;
+        padding: 2rem;
+    }
+
+    .upgrades-title {
+        text-align: center;
+        font-size: 4rem;
+        color: #fff;
+    }
+
+    .upgrades-nav i {
+        width: 6rem;
+        height: 6rem;
+        font-size: 2rem;
+        border-radius: .7rem;
+    }
+
+    .upgrades-list {
+        gap: 1rem;
+    }
+
+    .upgrades-list::-webkit-scrollbar {
+        width: 1.5rem;
+    }
+
+    .upgrade-container {
+        height: 10rem;
+        padding-inline: 1.5rem;
+    }
+
+    .upgrade-name {
+        font-size: 3rem;
+    }
+
+    .upgrade-price-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: #dadada48;
+        border-radius: .7rem;
+        margin-left: auto;
+    }
+
+    .upgrade-price {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .5rem;
+        padding: 1rem;
+        font-size: 3rem;
+        margin-left: auto;
+        border-radius: .8rem;
+    }
+
+    .confirmmenu {
+        gap: 2rem;
+        padding: 2rem;
+        border-radius: .3rem;
+    }
+
+    .confirm-title {
+        font-size: 5rem;
+        color: #c0c0c0;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .confirm-btns {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .confirm-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45rem;
+        height: 14rem;
+        font-size: 4rem;
+        border-radius: .5rem;
+        border: .1rem solid #ffffff00;
+    }
+
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v6.1.1/css/pro.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Idle Card's</title>
+</head>
+
+<body>
+    <div class="app">
+        <div class="game-container">
+            <div class="hud-container">
+                <div class="hud-commponents">
+                    <div class="cash"><i class="fa-solid fa-dollar"></i> <span id="cash"></span></div>
+                    <div class="gem"><i class="fa-solid fa-gem"></i> <span id=gems></span></div>
+                    <div class="players-count">PLAYERS: (2/5)</div>
+                    <div class="income">INCOME: x 1.35</div>
+                </div>
+                <div class="hud-buttons">
+                    <div class="upgrades-btn">UPGRADES</div>
+                    <div class="new-player">NEW ($ 500)</div>
+                    <div class="remove-success">REMOVE PROGRESS</div>
+                </div>
+            </div>
+            
+            <div class="players">
+                <!-- <div class="player">
+                    <div class="player-level">1</div>
+                    <div class="player-upgrade-cost">100</div>
+                </div> -->
+            </div>
+        </div>
+        <div class="upgrades-container">
+            <div class="upgrades-main">
+                <div class="upgrades-nav">
+                    <div class="upgrades-title">UPGRADES</div>
+                    <i class="fa-solid fa-xmark" id="close-menu"></i>
+                </div>
+
+                <div class="line"></div>
+                <div class="upgrades-list">
+                    <div class="upgrade-container">
+                        <div class="upgrade-name">+ 4 ilość kart</div>
+                        <div class="upgrade-price">$ 2300</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="confirmmenu">
+            <div class="confirm-title">SURE?</div>
+            <div class="line"></div>
+            <div class="confirm-btns">
+                <div class="confirm-btn confirm">CONFIRM</div>
+                <div class="confirm-btn cancel">CANCEL</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="app.js"></script>
+<script src="config.js"></script>
+
+</html>
