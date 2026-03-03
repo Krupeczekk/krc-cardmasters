@@ -70,8 +70,10 @@ Config.Upgrades = [
     { type: 'speed', value: 3.4, cost: { cash: 1500000, gems: 15 } },
     { type: 'card-count', value: 3, cost: { cash: 2000000, gems: 20 } },
     { type: 'cash-multiplier', value: 3.25, cost: { cash: 2500000, gems: 30 } },
-    { type: 'speed', value: 3.9, cost: { cash: 3000000, gems: 20 } },
-    { type: 'card-count', value: 3, cost: { cash: 3500000, gems: 25 } },
-    { type: 'speed', value: 4.5, cost: { cash: 4000000, gems: 25 } },
-    { type: 'cash-multiplier', value: 3.85, cost: { cash: 5000000, gems: 30 } },
+    { type: 'speed', value: 4.25, cost: { cash: 3000000, gems: 20 } },
+    { type: 'cash-multiplier', value: 4.2, cost: { cash: 3500000, gems: 50 } },
+    { type: 'card-count', value: 3, cost: { cash: 4000000, gems: 40 } },
+    { type: 'speed', value: 4.5, cost: { cash: 4500000, gems: 45 } },
+    { type: 'cash-multiplier', value: 5, cost: { cash: 5500000, gems: 30 } },
+
 ]
