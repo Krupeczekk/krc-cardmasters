@@ -76,5 +76,7 @@ Config.Upgrades = [
     { type: 'speed', value: 5.5, cost: { cash: 4500000, gems: 45 } },
     { type: 'cash-multiplier', value: 6, cost: { cash: 5500000, gems: 30 } },
     { type: 'speed', value: 7, cost: { cash: 6500000, gems: 85 } },
+    { type: 'speed', value: 9, cost: { cash: 8500000, gems: 100 } },
 ]
+
 
