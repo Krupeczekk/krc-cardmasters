@@ -16,9 +16,9 @@ Config.Players = [
     { income: 788, speed: 22, upgradeCost: 22500, color: '#e920c7' },
     { income: 980, speed: 25, upgradeCost: 30000, color: '#e2740d' },
     { income: 1150, speed: 27, upgradeCost: 75000, color: '#ff0000' },
-    { income: 1450, speed: 30, upgradeCost: 250000, color: '#800f0f' },
-    { income: 1780, speed: 35, upgradeCost: 1000000, color: '#281b4b' },
-    { income: 2500, speed: 45, upgradeCost: 5000000, color: '#ca9729' },
+    { income: 2050, speed: 30, upgradeCost: 250000, color: '#800f0f' },
+    { income: 3480, speed: 35, upgradeCost: 1000000, color: '#281b4b' },
+    { income: 5835, speed: 45, upgradeCost: 5000000, color: '#ca9729' },
 ]
 
 // types:
@@ -75,6 +75,8 @@ Config.Upgrades = [
     { type: 'card-count', value: 3, cost: { cash: 4000000, gems: 40 } },
     { type: 'speed', value: 5.5, cost: { cash: 4500000, gems: 45 } },
     { type: 'cash-multiplier', value: 6, cost: { cash: 5500000, gems: 30 } },
+    { type: 'speed', value: 7, cost: { cash: 6500000, gems: 85 } },
 
 ]
+@@
 
